@@ -16,7 +16,7 @@ def addition(x, y):
 def soustraction(x, y):
     return x - y
 
-def multiplication(a, b):
+def multiplication(x, y):
     return x * y
 
 def division(x, y):
