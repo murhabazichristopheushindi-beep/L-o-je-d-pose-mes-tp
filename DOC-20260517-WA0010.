@@ -6,87 +6,84 @@
 
 
 
-# ==========================================
-# 1. FONCTIONS DE CALCUL DE BASE
-# ==========================================
 
-def addition(a, b):
-    return a + b
+# 1) FONCTIONS DE CALCUL 
 
-def soustraction(a, b):
-    return a - b
+def addition(x, y):
+    return x + y
+
+def soustraction(x, y):
+    return x - y
 
 def multiplication(a, b):
-    return a * b
+    return x * y
 
-def division(a, b):
-    if b == 0:
+def division(x, y):
+    if y == 0:
         raise ValueError("Erreur : Division par zéro impossible.")
-    return a / b
+    return x / y
+
+# 2) CALCULS SUR LES VECTEURS
 
 
-# ==========================================
-# 2. CALCULS SUR LES VECTEURS
-# ==========================================
-
-def addition_vecteurs(v1, v2):
-    if len(v1) != len(v2):
+def addition_vecteurs(w1, w2):
+    if len(w1) != len(w2):
         raise ValueError("Les vecteurs doivent avoir la même taille.")
     
     # Utilisation d'une boucle pour additionner élément par élément
     resultat = []
-    for i in range(len(v1)):
-        resultat.append(v1[i] + v2[i])
+    for i in range(len(w1)):
+        resultat.append(w1[i] + w2[i])
     return resultat
 
-def produit_scalaire(v1, v2):
-    if len(v1) != len(v2):
+def produit_scalaire(w1, w2):
+    if len(w1) != len(w2):
         raise ValueError("Les vecteurs doivent avoir la même taille.")
     
     somme = 0
-    for i in range(len(v1)):
-        somme += v1[i] * v2[i]
+    for i in range(len(w1)):
+        somme = somme + v1[i] * v2[i]
     return somme
 
 
-# ==========================================
-# 3. CALCULS SUR LES MATRICES
-# ==========================================
 
-def addition_matrices(M1, M2):
+# 3) CALCULS SUR LES MATRICES
+
+
+def addition_matrices(m1, m2):
     # Vérification des dimensions (lignes et colonnes)
-    if len(M1) != len(M2) or len(M1[0]) != len(M2[0]):
+    if len(m1) != len(m2) or len(m1[0]) != len(m2[0]):
         raise ValueError("Les matrices doivent avoir les mêmes dimensions.")
     
-    lignes = len(M1)
-    colonnes = len(M1[0])
+    lignes = len(m1)
+    colonnes = len(m1[0])
     
     # Initialisation d'une matrice vide de même taille
     resultat = [[0 for _ in range(colonnes)] for _ in range(lignes)]
     
     for i in range(lignes):
         for j in range(colonnes):
-            resultat[i][j] = M1[i][j] + M2[i][j]
+            resultat[i][j] = m1[i][j] + m2[i][j]
     return resultat
 
-def multiplication_matrices(A, B):
-    # Nombre de colonnes de A doit être égal au nombre de lignes de B
-    if len(A[0]) != len(B):
+def multiplication_matrices(P, T):
+    # Nombre de colonnes de P doit être égal au nombre de lignes de T
+    if len(P[0]) != len(T):
         raise ValueError("Le nombre de colonnes de A doit être égal au nombre de lignes de B.")
     
-    lignes_A = len(A)
-    colonnes_A = len(A[0])
-    colonnes_B = len(B[0])
+    lignes_P = len(P)
+    colonnes_P = len(P[0])
+    colonnes_T = len(T[0])
     
-    # Initialisation de la matrice résultat (taille : lignes_A x colonnes_B)
-    resultat = [[0 for _ in range(colonnes_B)] for _ in range(lignes_A)]
+    # Initialisation de la matrice résultat (taille : lignes_P x colonnes_T)
+    resultat = [[0 for _ in range(colonnes_T)] for _ in range(lignes_P)]
     
     # Algorithme de multiplication de matrices
-    for i in range(lignes_A):
-        for j in range(colonnes_B):
+    for i in range(lignes_P):
+        for j in range(colonnes_T):
             somme = 0
             for k in range(colonnes_A):
-                somme += A[i][k] * B[k][j]
+                somme += P[i][k] * T[k][j]
             resultat[i][j] = somme
             
     return resultat
