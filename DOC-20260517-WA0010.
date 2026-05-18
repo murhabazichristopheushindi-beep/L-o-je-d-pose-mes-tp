@@ -2,12 +2,13 @@
 # USHINDI MURHABAZI CHRISTOPHE 
 # RAÏSSA RUTEBUKA 
 # TP N°1 d'intelligence artificielle
-# Bac2 génie minier
+# Bac2 génie minier/école des mines/UOB
 
 
 
 
 # 1) FONCTIONS DE CALCUL 
+#________________________
 
 def addition(x, y):
     return x + y
@@ -24,6 +25,7 @@ def division(x, y):
     return x / y
 
 # 2) CALCULS SUR LES VECTEURS
+#____________________________
 
 
 def addition_vecteurs(w1, w2):
@@ -48,6 +50,7 @@ def produit_scalaire(w1, w2):
 
 
 # 3) CALCULS SUR LES MATRICES
+#____________________________
 
 
 def addition_matrices(m1, m2):
@@ -89,9 +92,10 @@ def multiplication_matrices(P, T):
     return resultat
 
 
-# ==========================================
+
 # ZONE DE TEST (EXEMPLES D'UTILISATION)
-# ==========================================
+#______________________________________
+
 if __name__ == "__main__":
     print("--- Tests opérations de base ---")
     print(f"Addition (5 + 3) : {addition(5, 3)}")
