@@ -1,0 +1,123 @@
+
+# USHINDI MURHABAZI CHRISTOPHE 
+# RAÏSSA RUTEBUKA 
+# TP N°1 d'intelligence artificielle
+# Bac2 génie minier
+
+
+
+# ==========================================
+# 1. FONCTIONS DE CALCUL DE BASE
+# ==========================================
+
+def addition(a, b):
+    return a + b
+
+def soustraction(a, b):
+    return a - b
+
+def multiplication(a, b):
+    return a * b
+
+def division(a, b):
+    if b == 0:
+        raise ValueError("Erreur : Division par zéro impossible.")
+    return a / b
+
+
+# ==========================================
+# 2. CALCULS SUR LES VECTEURS
+# ==========================================
+
+def addition_vecteurs(v1, v2):
+    if len(v1) != len(v2):
+        raise ValueError("Les vecteurs doivent avoir la même taille.")
+    
+    # Utilisation d'une boucle pour additionner élément par élément
+    resultat = []
+    for i in range(len(v1)):
+        resultat.append(v1[i] + v2[i])
+    return resultat
+
+def produit_scalaire(v1, v2):
+    if len(v1) != len(v2):
+        raise ValueError("Les vecteurs doivent avoir la même taille.")
+    
+    somme = 0
+    for i in range(len(v1)):
+        somme += v1[i] * v2[i]
+    return somme
+
+
+# ==========================================
+# 3. CALCULS SUR LES MATRICES
+# ==========================================
+
+def addition_matrices(M1, M2):
+    # Vérification des dimensions (lignes et colonnes)
+    if len(M1) != len(M2) or len(M1[0]) != len(M2[0]):
+        raise ValueError("Les matrices doivent avoir les mêmes dimensions.")
+    
+    lignes = len(M1)
+    colonnes = len(M1[0])
+    
+    # Initialisation d'une matrice vide de même taille
+    resultat = [[0 for _ in range(colonnes)] for _ in range(lignes)]
+    
+    for i in range(lignes):
+        for j in range(colonnes):
+            resultat[i][j] = M1[i][j] + M2[i][j]
+    return resultat
+
+def multiplication_matrices(A, B):
+    # Nombre de colonnes de A doit être égal au nombre de lignes de B
+    if len(A[0]) != len(B):
+        raise ValueError("Le nombre de colonnes de A doit être égal au nombre de lignes de B.")
+    
+    lignes_A = len(A)
+    colonnes_A = len(A[0])
+    colonnes_B = len(B[0])
+    
+    # Initialisation de la matrice résultat (taille : lignes_A x colonnes_B)
+    resultat = [[0 for _ in range(colonnes_B)] for _ in range(lignes_A)]
+    
+    # Algorithme de multiplication de matrices
+    for i in range(lignes_A):
+        for j in range(colonnes_B):
+            somme = 0
+            for k in range(colonnes_A):
+                somme += A[i][k] * B[k][j]
+            resultat[i][j] = somme
+            
+    return resultat
+
+
+# ==========================================
+# ZONE DE TEST (EXEMPLES D'UTILISATION)
+# ==========================================
+if __name__ == "__main__":
+    print("--- Tests opérations de base ---")
+    print(f"Addition (5 + 3) : {addition(5, 3)}")
+    print(f"Division (10 / 2) : {division(10, 2)}")
+    
+    print("\n--- Tests Vecteurs ---")
+    vec1 = [1, 2, 3]
+    vec2 = [4, 5, 6]
+    print(f"Vecteur 1 : {vec1}")
+    print(f"Vecteur 2 : {vec2}")
+    print(f"Addition vecteurs : {addition_vecteurs(vec1, vec2)}")
+    print(f"Produit scalaire : {produit_scalaire(vec1, vec2)}")
+    
+    print("\n--- Tests Matrices ---")
+    matA = [
+        [1, 2],
+        [3, 4]
+    ]
+    matB = [
+        [5, 6],
+        [7, 8]
+    ]
+    print("Matrice A :", matA)
+    print("Matrice B :", matB)
+    print("Addition Matrices :", addition_matrices(matA, matB))
+    print("Multiplication Matrices :", multiplication_matrices(matA, matB))
