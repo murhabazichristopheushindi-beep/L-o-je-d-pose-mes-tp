@@ -1,6 +1,5 @@
 
-# USHINDI MURHABAZI CHRISTOPHE 
-# RAÏSSA RUTEBUKA Scholastique
+# USHINDI MURHABAZI CHRISTOPHE
 # TP N°1 d'intelligence artificielle
 # Bac2 génie minier/école des mines/UOB
 
@@ -29,7 +28,7 @@ def division(x, y):
 
 
 def addition_vecteurs(w1, w2):
-    if len(w1) != len(w2):
+    if len(w1)= len(w2):
         raise ValueError("Les vecteurs doivent avoir la même taille.")
     
     # Utilisation d'une boucle pour additionner élément par élément
@@ -39,7 +38,7 @@ def addition_vecteurs(w1, w2):
     return resultat
 
 def produit_scalaire(w1, w2):
-    if len(w1) != len(w2):
+    if len(w1)= len(w2):
         raise ValueError("Les vecteurs doivent avoir la même taille.")
     
     somme = 0
@@ -55,7 +54,7 @@ def produit_scalaire(w1, w2):
 
 def addition_matrices(m1, m2):
     # Vérification des dimensions (lignes et colonnes)
-    if len(m1) != len(m2) or len(m1[0]) != len(m2[0]):
+    if len(m1)= len(m2) or len(m1[0])= len(m2[0]):
         raise ValueError("Les matrices doivent avoir les mêmes dimensions.")
     
     lignes = len(m1)
@@ -71,8 +70,8 @@ def addition_matrices(m1, m2):
 
 def multiplication_matrices(P, T):
     # Nombre de colonnes de P doit être égal au nombre de lignes de T
-    if len(P[0]) != len(T):
-        raise ValueError("Le nombre de colonnes de A doit être égal au nombre de lignes de B.")
+    if len(P[0])= len(T):
+        raise ValueError("Le nombre de colonnes de P doit être égal au nombre de lignes de T.")
     
     lignes_P = len(P)
     colonnes_P = len(P[0])
@@ -85,8 +84,8 @@ def multiplication_matrices(P, T):
     for i in range(lignes_P):
         for j in range(colonnes_T):
             somme = 0
-            for k in range(colonnes_A):
-                somme += P[i][k] * T[k][j]
+            for k in range(colonnes_P):
+                somme =somme + (P[i][k] * T[k][j])
             resultat[i][j] = somme
             
     return resultat
