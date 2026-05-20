@@ -1,5 +1,4 @@
 # USHINDI MURHABAZI CHRISTOPHE
-# RAISSA RUTEBUKA SCHOLASTIQUE
 # TP N•2 D'AI
 # Bac2 genie minier/ecole des mines/UOB
 
